@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+-----------------------------------------------
+Qui tắc đặt tên lớp, id trong CSS, sử dụng qui ước BEM (Block__Element--Modifier):
+Ví dụ:
+ .bg--light: lớp nền sáng
+
+Bảng màu trong dự án:
+Trắng	    #F6F4F0
+Đen	        #000000
+Xám	        #D3DAD9
+Xanh nhạt	#79D7BE
+Xanh lá 1	#2E5077
+Xanh lá 2	#4DA1A9
+Đỏ	        #C8102E
+Vàng	    #FFCD00
+-----------------------------------------------
+*/
+
+/*
+-----------------------------------------------
+Container có 2 dạng:
+- container--fill: Chiếm toàn bộ chiều rộng
+- container--float: Chiếm 80% chiều rộng
+-----------------------------------------------
+*/
+.container--fill {
+    background-color: #2E5077;
+    width: 100%;
+}
+
+.container--float {
+    background-color: #2E5077;
+    width: 80%;
+}
+
+/*
+-----------------------------------------------
+Hiển thị, lấy ý tưởng đặt tên biến từ Framewok Bootstrap:
+    Bao gồm những thuộc tính hiển thị, căn chỉnh khoảng cách, điều chỉnh kích thước
+-----------------------------------------------
+*/
+
+/*
+-----------------------------------------------
+LOGO SIZE
+-----------------------------------------------
+*/
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+/*
+-----------------------------------------------
+ICON SIZE
+-----------------------------------------------
+*/
+
+.icon--lg {
+    max-width: 40px;
+    height: auto;
+}
+
+.icon--med {
+    max-width: 30px;
+    height: auto;
+}
+
+.icon--sm {
+    max-width: 20px;
+    height: auto;
+}
+
+/*
+-----------------------------------------------
+WIDTH
+-----------------------------------------------
+*/
+
+.width--fit {
+    width: fit-content;
+}
+
+.width--fill-100 {
+    width: 100%;
+}
+
+.width--fill-75 {
+    width: 75%;
+}
+
+.width--fill-50 {
+    width: 50%;
+}
+
+.width--fill-0 {
+    width: 0%;
+}
+
+/*
+-----------------------------------------------
+HEIGHT
+-----------------------------------------------
+*/
+
+.height--fill-100 {
+    height: 100%;
+}
+
+.height--fill-75 {
+    height: 75%;
+}
+
+.height--fill-50 {
+    height: 50%;
+}
+
+.height--fill-25 {
+    height: 25%;
+}
+
+.height--fill-0 {
+    height: 0%;
+}
+
+/*
+-----------------------------------------------
+ALIGN ITEMS
+-----------------------------------------------
+*/
+
+.align-items-Y--center {
+    margin: auto 0;
+}
+
+.align-items--center {
+    align-items: center;
+}
+
+.align-items--right {
+    align-items:end;
+}
+
+.align-items--left {
+    align-items: start;
+}
+
+/*
+-----------------------------------------------
+DISPLAY BLOCK
+-----------------------------------------------
+*/
+
+.display--block {
+    display: block;
+}
+
+/*
+-----------------------------------------------
+DISPLAY FLEX
+-----------------------------------------------
+*/
+
+.display--flex {
+    display: flex;
+}
+
+.justify-content--center {
+    justify-content: center;
+}
+
+.justify-content--space-between {
+    justify-content: space-between;
+}
+
+/*
+-----------------------------------------------
+Màu nền:
+- bg--light: nền trắng
+- bg--dark: nền đen được sử dụng cho chế độ tối (dark mode)
+- bg--primary: nền xanh được sử dụng cho các thành phần chính (VD: header, footer,...)
+- bg--secondary: nền xanh nhạt được sử dụng cho các thành phần phụ (VD: sidebar, button,...)
+- bg--unavilable: nền xám cho các thành phần không khả dụng (VD: nội dung bị ẩn hoặc khóa...)
+- bg--trending: nền đỏ được sử dụng để làm nổi bật các nội dung thịnhh hành
+-----------------------------------------------
+*/
+.bg--light {
+    background-color: #F6F4F0;
+}
+
+.bg--dark {
+    background-color: #000000;
+}
+
+.bg--primary {
+    background-color: #2E5077;
+}
+
+.bg--secondary {
+    background-color: #4DA1A9;
+}
+
+.bg--unavilable {
+    background-color: #D3DAD9;
+}
+
+.bg--trending {
+    color: #C8102E;
+}
+
+/*
+-----------------------------------------------
+Màu chữ:
+- text--light: hiển thị chữ trắng được sử dụng cho nền tối
+- text--dark: hiển thị chữ xanh đậm được sử dụng cho nền sáng
+- text--content: hiển thị chữ đen được sử dụng cho nội dung chính (VD: nội dung bài báo,...)
+- text--unavilable: hiển thị chữ xám cho nội dung không khả dụng (VD: nội dung bị ẩn hoặc khóa...)
+- text--trending: hiển thị chữ đỏ được sử dụng để làm nổi bật các nội dung thịnh hành
+-----------------------------------------------
+*/
+.text--light {
+    color: #F6F4F0;
+}
+
+.text--content {
+    color: #000000;
+}
+
+.text--unavilable{
+    color: #D3DAD9;
+}
+
+.text--trending {
+    color: #C8102E;
+}
+
+/*
+-----------------------------------------------
+Font chữ:
+- Font chữ chính được sử dụng là Montserrat, nếu không có sẽ dùng Tahoma hoặc Arial
+Lý do là sử dụng những font chữ không chân sẽ giúp hiển thị chữ rõ ràng và dễ đọc hơn,
+tránh tình trạng dính chân chữ và mờ chữ khi hiển thị trên các thiết bị khác nhau.
+-----------------------------------------------
+*/
+.text--lg {
+    font-size: large;
+    font-family: Montserrat, Tahoma, Arial;
+}
+
+.text--med {
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+}
+
+.text--sm {
+    font-size: small;
+    font-family: Montserrat, Tahoma, Arial;
+}
+
+.text--title {
+    text-align: center;
+    font-size: x-large;
+    font-family: Montserrat, Tahoma, Arial;
+    font-weight: bold;
+}
+
+.text--heading-1 {
+    text-align: left;
+    font-size: larger;
+    font-family: Montserrat, Tahoma, Arial;
+    font-weight: bold;
+}
+
+.text--heading-2 {
+    text-align: left;
+    font-size: large;
+    font-family: Montserrat, Tahoma, Arial;
+    font-weight: bold;
+}
+
+.text--heading-3 {
+    text-align: left;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.text--heading-4 {
+    text-align: left;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+    font-style: italic;
+}
+
+.text--content {
+    color: #000000;
+    text-align: justify;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+}
+
+/*
+-----------------------------------------------
+Nút bấm, lấy ý tưởng đặt tên biến từ Framework Bootstrap:
+- btn--hollow-primary: Nút bấm chính với nền xanh và chữ trắng
+-----------------------------------------------
+*/
+.btn {
+    background-color: #4DA1A9;
+    color: #F6F4F0;
+    margin: auto 0;
+    padding: 10px;
+    height: 75%;
+    border: 2px solid #4DA1A9;
+    border-radius: 15px;
+    text-align: center;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: #F6F4F0;
+    height: 75%;
+    border: 2px solid #4DA1A9;
+    border-radius: 15px;
+    text-align: center;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+    cursor: pointer;
+}
+
+.btn--hollow-primary {
+    background-color: transparent;
+    color: #F6F4F0;
+    margin: auto 0;
+    padding: 10px;
+    height: 75%;
+    border: 2px solid #4DA1A9;
+    border-radius: 15px;
+    text-align: center;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+    cursor: pointer;
+}
+
+.btn--hollow-primary:hover {
+    background-color: #4DA1A9;
+    color: #F6F4F0;
+    height: 75%;
+    border: 2px solid #4DA1A9;
+    border-radius: 15px;
+    text-align: center;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+    cursor: pointer;
+}
