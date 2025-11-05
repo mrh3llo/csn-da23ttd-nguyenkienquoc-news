@@ -1,8 +1,6 @@
-/*
-----------------------------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------------------------
 FILE CSS NÀY LÀ MÃ NGUỒNG GIAO DIỆN CHO TRANG WEB
-----------------------------------------------------------------------------------------------
-*/
+---------------------------------------------------------------------------------------------- */
 
 /* Reset CSS, nhằm đặt lại kích thước của toàn bộ trang web */
 * {
@@ -11,6 +9,13 @@ FILE CSS NÀY LÀ MÃ NGUỒNG GIAO DIỆN CHO TRANG WEB
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
+/* -----------------------------------------------
+HEADER
+----------------------------------------------- */
 header {
     padding: 10px;
 }
@@ -27,14 +32,17 @@ header .search-box {
     border-radius: 25px;
 }
 
+/* -----------------------------------------------
+NAVIGATION BAR
+----------------------------------------------- */
 nav {
     padding: 10px;
-    max-height: 50px;
+    max-height: 25%;
 }
 
-nav #topic {
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
+nav a:hover {
+    text-shadow: 0px 0px 5px #fff;
+    transform: translate(0px, -5px);
 }
 
 nav #topic a {
@@ -46,4 +54,15 @@ nav #topic a {
 nav #display_date_time {
     margin: 5px;
     min-width: 250px;
+}
+
+/* -----------------------------------------------
+FOOTER
+----------------------------------------------- */
+footer {
+    padding: 10px 0;
+}
+
+footer > div:nth-child(odd){
+    width: 30%;
 }

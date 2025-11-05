@@ -179,6 +179,10 @@ MARGIN
     margin: 20px 0;
 }
 
+.mt__auto {
+    margin: auto 0;
+}
+
 .mx__px--5 {
     margin: 0 5px;
 }
@@ -193,6 +197,10 @@ MARGIN
 
 .mx__px--20 {
     margin: 0 20px;
+}
+
+.mx__auto {
+    margin: 0 auto;
 }
 
 /* -----------------------------------------------
@@ -294,6 +302,10 @@ PADDING
     padding: 20px 0;
 }
 
+.py__auoto {
+    padding: auto 0;
+}
+
 .px__px--5 {
     padding: 0 5px;
 }
@@ -308,6 +320,10 @@ PADDING
 
 .px__px--20 {
     padding: 0 20px;
+}
+
+.py__auto {
+    padding: 0 auto;
 }
 
 /* -----------------------------------------------
@@ -438,7 +454,7 @@ DISPLAY
     flex-wrap: wrap;
 }
 
-.flex--no-wrap {
+.flex--nowrap {
     flex-wrap: nowrap;
 }
 
@@ -460,51 +476,27 @@ Màu nền:
 - bg--trending: nền đỏ được sử dụng để làm nổi bật các nội dung thịnhh hành
 ----------------------------------------------- */
 .bg--light {
-    background-color: #F6F4F0;
+    background-color: #F6F4F0 !important;
 }
 
 .bg--dark {
-    background-color: #000000;
+    background-color: #000000 !important;
 }
 
 .bg--primary {
-    background-color: #2E5077;
+    background-color: #2E5077 !important;
 }
 
 .bg--secondary {
-    background-color: #4DA1A9;
+    background-color: #4DA1A9 !important;
 }
 
 .bg--unavilable {
-    background-color: #D3DAD9;
+    background-color: #D3DAD9 !important;
 }
 
 .bg--trending {
-    color: #C8102E;
-}
-
-/* -----------------------------------------------
-Màu chữ:
-- text--light: hiển thị chữ trắng được sử dụng cho nền tối
-- text--dark: hiển thị chữ xanh đậm được sử dụng cho nền sáng
-- text--content: hiển thị chữ đen được sử dụng cho nội dung chính (VD: nội dung bài báo,...)
-- text--unavilable: hiển thị chữ xám cho nội dung không khả dụng (VD: nội dung bị ẩn hoặc khóa...)
-- text--trending: hiển thị chữ đỏ được sử dụng để làm nổi bật các nội dung thịnh hành
------------------------------------------------ */
-.text--light {
-    color: #F6F4F0;
-}
-
-.text--content {
-    color: #000000;
-}
-
-.text--unavilable{
-    color: #D3DAD9;
-}
-
-.text--trending {
-    color: #C8102E;
+    color: #C8102E !important;
 }
 
 /* -----------------------------------------------
@@ -513,6 +505,10 @@ Font chữ:
 Lý do là sử dụng những font chữ không chân sẽ giúp hiển thị chữ rõ ràng và dễ đọc hơn,
 tránh tình trạng dính chân chữ và mờ chữ khi hiển thị trên các thiết bị khác nhau.
 ----------------------------------------------- */
+* {
+    font-family: Montserrat, Tahoma, Arial;
+}
+
 .text--lg {
     font-size: large;
     font-family: Montserrat, Tahoma, Arial;
@@ -571,6 +567,64 @@ tránh tình trạng dính chân chữ và mờ chữ khi hiển thị trên cá
     font-family: Montserrat, Tahoma, Arial;
 }
 
+.text__link--dark {
+    color: #000;
+    text-align: justify;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+}
+
+.text__link--light {
+    color: #fff;
+    text-align: justify;
+    font-size: medium;
+    font-family: Montserrat, Tahoma, Arial;
+}
+
+.text--align-center {
+    text-align: center;
+}
+
+.text__align--left {
+    text-align: left;
+}
+
+.text--align-right {
+    text-align: right;
+}
+
+.text--align-justify {
+    text-align: justify;
+}
+
+.text__decoration--none{
+    text-decoration: none;
+}
+
+/* -----------------------------------------------
+Màu chữ:
+- text--light: hiển thị chữ trắng được sử dụng cho nền tối
+- text--dark: hiển thị chữ xanh đậm được sử dụng cho nền sáng
+- text--content: hiển thị chữ đen được sử dụng cho nội dung chính (VD: nội dung bài báo,...)
+- text--unavilable: hiển thị chữ xám cho nội dung không khả dụng (VD: nội dung bị ẩn hoặc khóa...)
+- text--trending: hiển thị chữ đỏ được sử dụng để làm nổi bật các nội dung thịnh hành
+----------------------------------------------- */
+.text--light {
+    color: #F6F4F0 !important;
+}
+
+.text--content {
+    color: #000000 !important;
+}
+
+.text--unavilable{
+    color: #D3DAD9 !important;
+}
+
+.text--trending {
+    color: #C8102E !important;
+}
+
 /* -----------------------------------------------
 Nút bấm:
 - Lấy ý tưởng đặt tên biến từ Framework Bootstrap.
@@ -601,6 +655,7 @@ Nút bấm:
     font-size: medium;
     font-weight: bolder;
     cursor: pointer;
+    transform: translate(0px, -5px);
     box-shadow: 2px 2px 20px #000000;
 }
 
@@ -629,6 +684,7 @@ Nút bấm:
     font-size: medium;
     font-weight: bolder;
     cursor: pointer;
+    transform: translate(0px, -5px);
     box-shadow: 2px 2px 20px #000000;
 }
 
@@ -657,6 +713,7 @@ Nút bấm:
     font-size: medium;
     font-weight: bolder;
     cursor: pointer;
+    transform: translate(0px, -5px);
     box-shadow: 2px 2px 20px #000000;
 }
 
@@ -685,9 +742,21 @@ Nút bấm:
     font-size: medium;
     font-weight: bolder;
     cursor: pointer;
+    transform: translate(0px, -5px);
     box-shadow: 2px 2px 20px #000000;
 }
 
+/* -----------------------------------------------
+Danh sách:
+----------------------------------------------- */
+.ls__style--none {
+    list-style-type: none;
+}
+
+
+/* -----------------------------------------------
+Text box:
+----------------------------------------------- */
 .text-box {
     background-color: #F6F4F0;
     border-width: 0;
