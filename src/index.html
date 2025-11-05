@@ -4,19 +4,48 @@
     <title>Báo Online</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/components.css">
 </head>
-<body>
-    <header class="content--fill bg--primary display--flex justify-content--space-between">
-        <img class="logo display--block" src="./media/img/logo_vn.png" alt="Logo Báo Online"">
-        <div class="bg--light height--fill-75 align-items-Y--center display--flex">
-            <img class="icon--sm display--block" src="./media/img/search_icon.png" alt="Icon tìm kiếm">
-            <input type="text">
+<body class="bg--light">
+    <!-- HEADER -->
+    <header class="container--fill display--flex flex-direction--row flex--wrap justify-content--space-around align-items--center">
+        <img class="logo--lg display--block" src="./media/img/logo_vn.png" alt="Logo Báo Online">
+        <div class="search-box bg--light p__px--5 w-25 display--flex">
+            <img class="icon--med display--block center-vertical--items" src="./media/icons/search_icon.png" alt="Icon tìm kiếm">
+            <input class="text-box--rounded w-100" type="text">
         </div>
-        <div class="align-items-Y--center">
-            <button class="btn--hollow-primary">Đăng Nhập</button>
-            <button class="btn">Đăng Ký</button>
+        <div class="center-vertical--items">
+            <button class="btn__primary--hollow">Đăng Nhập</button>
+            <button class="btn__primary">Đăng Ký</button>
         </div>
     </header>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="container--fill bg--secondary display--flex flex-direction--row justify-content--space-evenly">
+        <div id="home" class="p__px--5 w-fit display--flex justify-content--evenly align-items--center">
+            <img class="icon--med" src="./media/icons/home_icon.png" alt="Icon trang chủ">
+            <a class="mx__px--5 text--lg text--content" href="#">Trang Chủ</a>
+        </div>
+        <div id="topic" class="px__px--10 w-50 display--flex justify-content--space-between align-items--center">
+            <a class="text--content" href="#">Tin tức</a>
+            <a class="text--content" href="#">Thời sự</a>
+            <a class="text--content" href="#">Thể thao</a>
+            <a class="text--content" href="#">Thời tiết</a>
+            <a class="text--content" href="#">Ngoài nước</a>
+        </div>
+        <div id="date_time" class="p__px--5 display--flex align-items--center">
+            <img class="display--block" src="./media/icons/Vietnam_flag.png" alt="Lá cờ Việt Nam">
+            <div id="display_date_time" class="text--content"></div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+
+    <!-- FOOTER -->
+     <footer>
+        
+     </footer>
+    <script src="libs/libs.js"></script>
 </body>
 </html>

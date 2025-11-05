@@ -1,11 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ----------------------------------------------------------------------------------------------
+FILE CSS NÀY CHỨA CÁC THÀNH PHẦN GIAO DIỆN TÁI SỬ DỤNG
+----------------------------------------------------------------------------------------------
 
-/*
------------------------------------------------
+
+
 Qui tắc đặt tên lớp, id trong CSS, sử dụng qui ước BEM (Block__Element--Modifier):
 Ví dụ:
  .bg--light: lớp nền sáng
@@ -19,16 +17,13 @@ Xanh lá 1	#2E5077
 Xanh lá 2	#4DA1A9
 Đỏ	        #C8102E
 Vàng	    #FFCD00
------------------------------------------------
-*/
+----------------------------------------------- */
 
-/*
------------------------------------------------
+/* -----------------------------------------------
 Container có 2 dạng:
 - container--fill: Chiếm toàn bộ chiều rộng
 - container--float: Chiếm 80% chiều rộng
------------------------------------------------
-*/
+----------------------------------------------- */
 .container--fill {
     background-color: #2E5077;
     width: 100%;
@@ -39,136 +34,384 @@ Container có 2 dạng:
     width: 80%;
 }
 
-/*
------------------------------------------------
+/* -----------------------------------------------
 Hiển thị, lấy ý tưởng đặt tên biến từ Framewok Bootstrap:
     Bao gồm những thuộc tính hiển thị, căn chỉnh khoảng cách, điều chỉnh kích thước
------------------------------------------------
-*/
+----------------------------------------------- */
 
-/*
------------------------------------------------
-LOGO SIZE
------------------------------------------------
-*/
-.logo {
+/* -----------------------------------------------
+KÍCH THƯỚC CỦA LOGO
+- TỪ logo--sm ĐẾN logo--med sẽ cộng thêm 50px cho chiề
+- TỪ logo--med ĐẾN logo--lg sẽ cộng thêm 50px cho chiều rộng.u rộng.
+----------------------------------------------- */
+.logo--lg {
     width: 150px;
-    height: auto;
+    max-height: 200px;
 }
 
-/*
------------------------------------------------
-ICON SIZE
------------------------------------------------
-*/
+.logo--med{
+    width: 100px;
+    max-height: 150px;
+}
 
+.logo--sm {
+    width: 50px;
+    max-height: 100px;
+}
+
+/* -----------------------------------------------
+KÍCH THƯỚC CỦA ICON
+----------------------------------------------- */
 .icon--lg {
-    max-width: 40px;
-    height: auto;
+    min-width: 40px;
+    max-width: 45px;
+    height: 45px;
 }
 
 .icon--med {
-    max-width: 30px;
-    height: auto;
+    min-width: 30px;
+    max-width: 35px;
+    height: 35px;
 }
 
 .icon--sm {
-    max-width: 20px;
-    height: auto;
+    min-width: 20px;
+    max-width: 25px;
+    height: 25px;
 }
 
-/*
------------------------------------------------
-WIDTH
------------------------------------------------
-*/
+/* -----------------------------------------------
+MARGIN
+----------------------------------------------- */
+.m__px--5 {
+    margin: 5px;
+}
 
-.width--fit {
+.m__px--5 {
+    margin: 10px;
+}
+
+.m__px--5 {
+    margin: 15px;
+}
+
+.m__px--5 {
+    margin: 20px;
+}
+
+.mt__px--5 {
+    margin-top: 5px;
+}
+
+.mt__px--10 {
+    margin-top: 10px;
+}
+
+.mt__px--15 {
+    margin-top: 15px;
+}
+
+.mt__px--20 {
+    margin-top: 20px;
+}
+
+.mb__px--5 {
+    margin-bottom: 5px;
+}
+
+.mb__px--10 {
+    margin-bottom: 10px;
+}
+
+.mb__px--15 {
+    margin-bottom: 15px;
+}
+
+.mb__px--20 {
+    margin-bottom: 20px;
+}
+
+.ml__px--5 {
+    margin-left: 5px;
+}
+
+.ml__px--10 {
+    margin-left: 10px;
+}
+
+.ml__px--15 {
+    margin-left: 15px;
+}
+
+.ml__px--20 {
+    margin-left: 20px;
+}
+
+.mr__px--5 {
+    margin-right: 5px;
+}
+
+.mr__px--10 {
+    margin-right: 10px;
+}
+
+.mr__px--15 {
+    margin-right: 15px;
+}
+
+.mr__px--20 {
+    margin-right: 20px;
+}
+
+.my__px--5 {
+    margin: 5px 0;
+}
+
+.my__px--10 {
+    margin: 10px 0;
+}
+
+.my__px--15 {
+    margin: 15px 0;
+}
+
+.my__px--20 {
+    margin: 20px 0;
+}
+
+.mx__px--5 {
+    margin: 0 5px;
+}
+
+.mx__px--10 {
+    margin: 0 10px;
+}
+
+.mx__px--15 {
+    margin: 0 15px;
+}
+
+.mx__px--20 {
+    margin: 0 20px;
+}
+
+/* -----------------------------------------------
+PADDING
+----------------------------------------------- */
+.p__px--5 {
+    padding: 5px;
+}
+
+.p__px--10 {
+    padding: 10px;
+}
+
+.p__px--15 {
+    padding: 15px;
+}
+
+.p__px--20 {
+    padding: 20px;
+}
+
+.pt__px--5 {
+    padding-top: 5px;
+}
+
+.pt__px--10 {
+    padding-top: 10px;
+}
+
+.pt__px--15 {
+    padding-top: 15px;
+}
+
+.pt__px--20 {
+    padding-top: 20px;
+}
+
+.pb__px--5 {
+    padding-bottom: 5px;
+}
+
+.pb__px--10 {
+    padding-bottom: 10px;
+}
+
+.pb__px--15 {
+    padding-bottom: 15px;
+}
+
+.pb__px--20 {
+    padding-bottom: 20px;
+}
+
+.pl__px--5 {
+    padding-left: 5px;
+}
+
+.pl__px--10 {
+    padding-left: 10px;
+}
+
+.pl__px--15 {
+    padding-left: 15px;
+}
+
+.pl__px--20 {
+    padding-left: 20px;
+}
+
+.pr__px--5 {
+    padding-right: 5px;
+}
+
+.pr__px--10 {
+    padding-right: 10px;
+}
+
+.pr__px--15 {
+    padding-right: 15px;
+}
+
+.pr__px--20 {
+    padding-right: 20px;
+}
+
+.py__px--5 {
+    padding: 5px 0;
+}
+
+.py__px--10 {
+    padding: 10px 0;
+}
+
+.py__px--15 {
+    padding: 15px 0;
+}
+
+.py__px--20 {
+    padding: 20px 0;
+}
+
+.px__px--5 {
+    padding: 0 5px;
+}
+
+.px__px--10 {
+    padding: 0 10px;
+}
+
+.px__px--15 {
+    padding: 0 15px;
+}
+
+.px__px--20 {
+    padding: 0 20px;
+}
+
+/* -----------------------------------------------
+WIDTH
+----------------------------------------------- */
+.w-fit {
     width: fit-content;
 }
 
-.width--fill-100 {
+.w-max {
+    width:max-content;
+}
+
+.w-min {
+    width: min-content;
+}
+
+.w-100 {
     width: 100%;
 }
 
-.width--fill-75 {
+.w-75 {
     width: 75%;
 }
 
-.width--fill-50 {
+.w-50 {
     width: 50%;
 }
 
-.width--fill-0 {
-    width: 0%;
+.w-25 {
+    width: 25%;
 }
 
-/*
------------------------------------------------
+/* -----------------------------------------------
 HEIGHT
------------------------------------------------
-*/
+----------------------------------------------- */
+.h-fit {
+    height: fit-content;
+}
 
-.height--fill-100 {
+.h-max {
+    height: max-content;
+}
+
+.h-min {
+    height: min-content;
+}
+
+.h-100 {
     height: 100%;
 }
 
-.height--fill-75 {
+.h-75 {
     height: 75%;
 }
 
-.height--fill-50 {
+.h-50 {
     height: 50%;
 }
 
-.height--fill-25 {
+.h-25 {
     height: 25%;
 }
 
-.height--fill-0 {
-    height: 0%;
-}
-
-/*
------------------------------------------------
+/* -----------------------------------------------
 ALIGN ITEMS
------------------------------------------------
-*/
-
-.align-items-Y--center {
-    margin: auto 0;
-}
-
+----------------------------------------------- */
 .align-items--center {
     align-items: center;
 }
 
-.align-items--right {
-    align-items:end;
-}
-
 .align-items--left {
-    align-items: start;
+    align-items: flex-start;
 }
 
-/*
------------------------------------------------
-DISPLAY BLOCK
------------------------------------------------
-*/
+.align-items--right {
+    align-items: flex-end;
+}
 
+/* -----------------------------------------------
+DISPLAY
+----------------------------------------------- */
 .display--block {
     display: block;
 }
 
-/*
------------------------------------------------
-DISPLAY FLEX
------------------------------------------------
-*/
+.display--inline {
+    display: inline;
+}
+
+.display--inline-block {
+    display: inline-block;
+}
 
 .display--flex {
     display: flex;
+}
+
+.justify-content--left {
+    justify-content: flex-start;
+}
+
+.justify-content--right {
+    justify-content: flex-end;
 }
 
 .justify-content--center {
@@ -179,8 +422,35 @@ DISPLAY FLEX
     justify-content: space-between;
 }
 
-/*
------------------------------------------------
+.justify-content--space-around {
+    justify-content: space-around;
+}
+
+.justify-content--space-evenly {
+    justify-content: space-evenly;
+}
+
+.justify-content--baseline {
+    justify-content: baseline;
+}
+
+.flex--wrap {
+    flex-wrap: wrap;
+}
+
+.flex--no-wrap {
+    flex-wrap: nowrap;
+}
+
+.flex-direction--column {
+    flex-direction: column;
+}
+
+.flex-direction--row {
+    flex-direction: row;
+}
+
+/* -----------------------------------------------
 Màu nền:
 - bg--light: nền trắng
 - bg--dark: nền đen được sử dụng cho chế độ tối (dark mode)
@@ -188,8 +458,7 @@ Màu nền:
 - bg--secondary: nền xanh nhạt được sử dụng cho các thành phần phụ (VD: sidebar, button,...)
 - bg--unavilable: nền xám cho các thành phần không khả dụng (VD: nội dung bị ẩn hoặc khóa...)
 - bg--trending: nền đỏ được sử dụng để làm nổi bật các nội dung thịnhh hành
------------------------------------------------
-*/
+----------------------------------------------- */
 .bg--light {
     background-color: #F6F4F0;
 }
@@ -214,16 +483,14 @@ Màu nền:
     color: #C8102E;
 }
 
-/*
------------------------------------------------
+/* -----------------------------------------------
 Màu chữ:
 - text--light: hiển thị chữ trắng được sử dụng cho nền tối
 - text--dark: hiển thị chữ xanh đậm được sử dụng cho nền sáng
 - text--content: hiển thị chữ đen được sử dụng cho nội dung chính (VD: nội dung bài báo,...)
 - text--unavilable: hiển thị chữ xám cho nội dung không khả dụng (VD: nội dung bị ẩn hoặc khóa...)
 - text--trending: hiển thị chữ đỏ được sử dụng để làm nổi bật các nội dung thịnh hành
------------------------------------------------
-*/
+----------------------------------------------- */
 .text--light {
     color: #F6F4F0;
 }
@@ -240,14 +507,12 @@ Màu chữ:
     color: #C8102E;
 }
 
-/*
------------------------------------------------
+/* -----------------------------------------------
 Font chữ:
 - Font chữ chính được sử dụng là Montserrat, nếu không có sẽ dùng Tahoma hoặc Arial
 Lý do là sử dụng những font chữ không chân sẽ giúp hiển thị chữ rõ ràng và dễ đọc hơn,
 tránh tình trạng dính chân chữ và mờ chữ khi hiển thị trên các thiết bị khác nhau.
------------------------------------------------
-*/
+----------------------------------------------- */
 .text--lg {
     font-size: large;
     font-family: Montserrat, Tahoma, Arial;
@@ -306,60 +571,131 @@ tránh tình trạng dính chân chữ và mờ chữ khi hiển thị trên cá
     font-family: Montserrat, Tahoma, Arial;
 }
 
-/*
------------------------------------------------
-Nút bấm, lấy ý tưởng đặt tên biến từ Framework Bootstrap:
-- btn--hollow-primary: Nút bấm chính với nền xanh và chữ trắng
------------------------------------------------
-*/
-.btn {
+/* -----------------------------------------------
+Nút bấm:
+- Lấy ý tưởng đặt tên biến từ Framework Bootstrap.
+- Các nút rỗng sẽ có hậu tố --hollow. Ví dụ: btn__primary--hollow
+----------------------------------------------- */
+.btn__primary {
     background-color: #4DA1A9;
     color: #F6F4F0;
     margin: auto 0;
     padding: 10px;
-    height: 75%;
     border: 2px solid #4DA1A9;
     border-radius: 15px;
     text-align: center;
-    font-size: medium;
     font-family: Montserrat, Tahoma, Arial;
+    font-size: medium;
     cursor: pointer;
 }
 
-.btn:hover {
-    background-color: transparent;
-    color: #F6F4F0;
-    height: 75%;
-    border: 2px solid #4DA1A9;
+.btn__primary:hover {
+    background-color: #79D7BE;
+    color: #2E5077;
+    margin: auto 0;
+    padding: 10px;
+    border: 2px solid #79D7BE;
     border-radius: 15px;
     text-align: center;
-    font-size: medium;
     font-family: Montserrat, Tahoma, Arial;
+    font-size: medium;
+    font-weight: bolder;
     cursor: pointer;
+    box-shadow: 2px 2px 20px #000000;
 }
 
-.btn--hollow-primary {
+.btn__primary--hollow {
     background-color: transparent;
     color: #F6F4F0;
     margin: auto 0;
     padding: 10px;
-    height: 75%;
     border: 2px solid #4DA1A9;
     border-radius: 15px;
     text-align: center;
-    font-size: medium;
     font-family: Montserrat, Tahoma, Arial;
+    font-size: medium;
     cursor: pointer;
 }
 
-.btn--hollow-primary:hover {
-    background-color: #4DA1A9;
-    color: #F6F4F0;
-    height: 75%;
-    border: 2px solid #4DA1A9;
+.btn__primary--hollow:hover {
+    background-color: #79D7BE;
+    color: #2E5077;
+    margin: auto 0;
+    padding: 10px;
+    border: 2px solid #79D7BE;
     border-radius: 15px;
     text-align: center;
-    font-size: medium;
     font-family: Montserrat, Tahoma, Arial;
+    font-size: medium;
+    font-weight: bolder;
     cursor: pointer;
+    box-shadow: 2px 2px 20px #000000;
+}
+
+.btn__trending {
+    background-color: #C8102E;
+    color: #fff;
+    margin: auto 0;
+    padding: 10px;
+    border: 2px solid #C8102E;
+    border-radius: 15px;
+    text-align: center;
+    font-family: Montserrat, Tahoma, Arial;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.btn__trending:hover {
+    background-color: #FFCD00;
+    color: #C8102E;
+    margin: auto 0;
+    padding: 10px;
+    border: 2px solid #FFCD00;
+    border-radius: 15px;
+    text-align: center;
+    font-family: Montserrat, Tahoma, Arial;
+    font-size: medium;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: 2px 2px 20px #000000;
+}
+
+.btn__trending--hollow {
+    background-color: transparent;
+    color: #C8102E;
+    margin: auto 0;
+    padding: 10px;
+    border: 2px solid #C8102E;
+    border-radius: 15px;
+    text-align: center;
+    font-family: Montserrat, Tahoma, Arial;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.btn__trending--hollow:hover {
+    background-color: #FFCD00;
+    color: #C8102E;
+    margin: auto 0;
+    padding: 10px;
+    border: 2px solid #FFCD00;
+    border-radius: 15px;
+    text-align: center;
+    font-family: Montserrat, Tahoma, Arial;
+    font-size: medium;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: 2px 2px 20px #000000;
+}
+
+.text-box {
+    background-color: #F6F4F0;
+    border-width: 0;
+    border-radius: 5px;
+}
+
+.text-box--rounded {
+    background-color: #F6F4F0;
+    border-width: 0;
+    border-radius: 25px;
 }

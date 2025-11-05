@@ -1,0 +1,49 @@
+/*
+----------------------------------------------------------------------------------------------
+FILE CSS NÀY LÀ MÃ NGUỒNG GIAO DIỆN CHO TRANG WEB
+----------------------------------------------------------------------------------------------
+*/
+
+/* Reset CSS, nhằm đặt lại kích thước của toàn bộ trang web */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 10px;
+}
+
+/* Trỏ đến các phần tử con trong header là img, div */
+header > * {
+    margin: 10px;
+}
+
+header .search-box {
+    min-width: 300px;
+    min-height: 40px;
+    max-height: 50px;
+    border-radius: 25px;
+}
+
+nav {
+    padding: 10px;
+    max-height: 50px;
+}
+
+nav #topic {
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+nav #topic a {
+    min-width: 55px;
+    max-width: 100px;
+    text-align: center;
+}
+
+nav #display_date_time {
+    margin: 5px;
+    min-width: 250px;
+}
