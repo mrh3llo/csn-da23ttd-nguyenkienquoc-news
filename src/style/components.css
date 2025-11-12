@@ -81,32 +81,75 @@ Kích thước logo, biểu tượng
 .logo--lg {
     width: var(--logo-size-large);
     max-height: 200px;
+    transition:
+    transform 1s ease,
+    border 1s ease,
+    border-radius 1s ease;
 }
 
 .logo--med {
     width: var(--logo-size-medium);
     max-height: 150px;
+    transition:
+    transform 1s ease,
+    border 1s ease,
+    border-radius 1s ease;
 }
 
 .logo--sm {
     width: var(--logo-size-small);
     max-height: 100px;
+    transition:
+    transform 1s ease,
+    border 1s ease,
+    border-radius 1s ease;
+}
+
+.logo--lg:hover,
+.logo--med:hover,
+.logo--sm:hover {
+    padding: 5px;
+    border: 2px solid var(--color-thirdly);
+    border-radius: 15px;
+    transform: rotate(1deg);
 }
 
 .icon--lg {
     width: var(--icon-size-large);
     max-height: 45px;
+    transition:
+    transform 1s ease,
+    border 1s ease,
+    border-radius 1s ease;
 }
 
 .icon--med {
     width: var(--icon-size-medium);
     max-height: 35px;
+    transition:
+    transform 1s ease,
+    border 1s ease,
+    border-radius 1s ease;
 }
 
 .icon--sm {
     width: var(--icon-size-small);
     max-height: 25px;
+    transition:
+    transform 1s ease,
+    border 1s ease,
+    border-radius 1s ease;
 }
+
+.icon--lg:hover,
+.icon--med:hover,
+.icon--lg:hover {
+    padding: 5px;
+    border: 2px solid var(--color-thirdly);
+    border-radius: 15px;
+    transform: rotate(10deg);
+}
+
 
 /* -----------------------------------------------
 Container
@@ -796,6 +839,19 @@ Thanh công cụ (Navigation Bar, NavBar)
     list-style-type: none;
 }
 
+/* Lớp navbar__item--pinned dùng để chọn phần thử muốn ghim khi thay đổi navbar ở kích thước nhỏ hơn */
+.navbar__item,
+.navbar__item--pinned {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar__item * {
+    margin: var(--spacing-sm);
+}
+
 .navbar--vertical .navbar__items,
 .navbar--vertical .navbar__items * {
     color: var(--color-light);
@@ -811,8 +867,55 @@ Thanh công cụ (Navigation Bar, NavBar)
 }
 
 /* https://www.w3schools.com/css/css_navbar_vertical.asp */
-@media screen and (max-width: 420) {
-    
+@media screen and (max-width: 420px) {
+    /* Thay đổi trên các thiết bị di động có chiều ngang khoảng 420px */
+    header #logo_centered {
+        display: block;
+    }
+
+    header #logo_vn {
+        display: none;
+    }
+
+    .navbar .navbar__item{
+        display: none;
+    }
+
+    .navbar .navbar__item--pinned {
+        padding: 10px;
+        height: 100px;
+        width: 100%;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .navbar .navbar__item{
+        display: none;
+    }
+
+    .navbar .navbar__item--pinned {
+        padding: 10px;
+        height: 100px;
+        width: 100%;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 910px) {
+    header #logo_centered {
+        display: none;
+    }
+
+    header #logo_vn {
+        display: block;
+    }
 }
 
 /* -----------------------------------------------
@@ -822,9 +925,9 @@ Còn thiếu :active
 .btn--primary {
     background-color: var(--color-secondary);
     color: var(--color-light);
+    margin: var(--spacing-med);
     border: 2px solid var(--color-secondary);
     border-radius: 15px;
-    width: 150px;
     font-family: var(--font-family-base);
     font-size: var(--font-size-content);
     text-align: center;
@@ -838,9 +941,9 @@ Còn thiếu :active
 .btn--primary-hollow {
     background-color: transparent;
     color: var(--color-light);
+    margin: var(--spacing-med);
     border: 2px solid var(--color-secondary);
     border-radius: 15px;
-    width: 150px;
     font-family: var(--font-family-base);
     font-size: var(--font-size-content);
     text-align: center;
@@ -868,9 +971,9 @@ Còn thiếu :active
 .btn--trending {
     background-color: var(--color-trending);
     color: var(--color-highlight);
+    margin: var(--spacing-med);
     border: 2px solid var(--color-trending);
     border-radius: 15px;
-    width: 150px;
     font-family: var(--font-family-base);
     font-size: var(--font-size-content);
     text-align: center;
@@ -884,9 +987,9 @@ Còn thiếu :active
 .btn--trending-hollow {
     background-color: transparent;
     color: var(--color-highlight);
+    margin: var(--spacing-med);
     border: 2px solid var(--color-trending);
     border-radius: 15px;
-    width: 150px;
     font-family: var(--font-family-base);
     font-size: var(--font-size-content);
     text-align: center;
@@ -944,6 +1047,8 @@ Card (thẻ)
 .card {
     background-color: var(--color-light);
     color: var(--color-light);
+    max-width: 300px;
+    display: block;
     padding: var(--spacing-med);
     font-family: var(--font-family-base);
     transition:
@@ -958,7 +1063,7 @@ Card (thẻ)
 
 .card__img {
     margin: var(--spacing-med);
-    width: 90%;
+    max-width: 200px;
     min-width: 150px;
     margin: 0 auto;
     display: block;
@@ -973,6 +1078,7 @@ Card (thẻ)
 .card__title {
     color: var(--color-dark);
     margin: var(--spacing-sm);
+    max-width: 300px;
     text-align: center;
     font-weight: bolder;
     font-family: var(--font-family-base);
@@ -981,7 +1087,41 @@ Card (thẻ)
 
 .card__content {
     color: var(--color-dark);
+    max-width: 300px;
     text-align: justify;
     font-family: var(--font-size-base);
     font-size: var(--font-size-content);
+}
+
+@media screen and (max-width: 420px) {
+    .card__title {
+        font-size: var(--font-size-heading-1);
+    }
+
+    .card__content {
+        display: none;
+    }
+}
+
+/* -----------------------------------------------
+Form (biểu mẫu, input)
+----------------------------------------------- */
+.form {
+    background-color: var(--color-unavilable);
+    color: var(--color-secondary);
+    margin: 10px auto;
+    padding: var(--spacing-lg);
+    width: 25%;
+    border: 5px solid var(--color-secondary);
+    border-radius: 15px;
+}
+
+.form__label {
+    margin: var(--spacing-med);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-content);
+}
+
+.form__input {
+
 }

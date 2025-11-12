@@ -4,7 +4,19 @@ FILE CSS NÀY LÀ MÃ NGUỒN GIAO DIỆN CHO TRANG WEB
 ---------------------------------------------------------------------------------------------- */
 
 body {
-    background-image: linear-gradient(to top left, #F6F4F0, #D3DAD9);
+    background-image: linear-gradient(to top left, #D3DAD9, #F6F4F0);
+    background-repeat: no-repeat;
+}
+
+header > *,
+footer > * {
+    margin: 20px 0;
+    min-width: 300px;
+}
+
+header button {
+    min-width: 100px;
+    max-width: 150px;
 }
 
 #trending_news {
