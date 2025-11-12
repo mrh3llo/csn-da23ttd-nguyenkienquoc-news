@@ -52,26 +52,34 @@
     </nav>
 
     <!-- CONTENT -->
-        <p class="text__style--title text__color--primary py__px--lg">ĐĂNG NHẬP</p>
-        <form class="form" action="">
-            <label class="form__label" for="user_email">Email:</label>
-            <input class="form__input" id="user_email" type="email" placeholder="Email"> <br>
-            <label class="form__label for="user_name">Tên người dùng:</label>
-            <input class="form__input" id="user_name" type="text" placeholder="Ví dụ: kquoc"> <br>
-            <label class="form__label" for="user_password">Mật khẩu:</label>
-            <input class="form__input" id="user_password" type="password" placeholder="Nhập mật khẩu"> <br>
-            <label class="form__label" for="user_password_comform">Xác nhận mật khẩu:</label>
-            <input class="form__input" id="user_password_comform" type="password" placeholder="Xác nhận mật khẩu"> <br>
-            <div class="display__flex flex--wrap justify-content-around">
-                <button class="btn--primary p__px--lg text__color--primary">Đăng ký</button>
-                <button class="btn--primary-hollow p__px--lg text__color--primary">Hủy</button>
+    <p class="text__style--title text__color--primary py__px--lg">ĐĂNG KÝ</p>
+    <form class="form" onsubmit="validateSignUpForm(event)">
+        <div class="display__flex flex--no-wrap justify-content-between">
+            <!-- Chia ra làm 2 cột để  input thẳng hàng -->
+            <div class="w-50 display__flex flex__direction--column justify-content-around">
+                <label class="form__label" for="user_email">Email:</label>
+                <label class="form__label for="user_name">Tên người dùng:</label>
+                <label class="form__label" for="user_password">Mật khẩu:</label>
+                <label class="form__label" for="user_password_comform">Xác nhận mật khẩu:</label>
             </div>
-        </form>
-     </div>
+            <div class="w-50 display__flex flex__direction--column justify-content-around">
+                <input class="form__input" id="user_email" type="email" onkeypress="validateSignUp(event)" placeholder="Email">
+                <input class="form__input" id="user_name" type="text" onkeypress="validateSignUp(event)" placeholder="Ví dụ: kquoc">
+                <input class="form__input" id="user_password" type="password" onkeypress="validateSignUp(event)" placeholder="Nhập mật khẩu">
+                <input class="form__input" id="user_password_comfirm" type="password" onkeypress="validateSignUp(event)" placeholder="Xác nhận mật khẩu">
+            </div>
+        </div>
+        <a class="link--none my__px--med w-100 display__block text__align--right" href="forgot_password.html">Bạn quên mật khẩu?</a>
+        <div id="log_status"></div>
+        <div class="m__px--med w-100 display__flex flex--wrap justify-content-around">
+            <button class="btn--primary p__px--lg text__color--primary" type="submit">Đăng ký</button>
+            <button class="btn--primary-hollow p__px--lg text__color--primary" type="reset">Hủy</button>
+        </div>
+    </form>
 
     <!-- FOOTER -->
-    <footer class="container--fill p__px--lg h-fit display__flex flex-direction--row justify-content-around">
-        <div class="h-fit w-25">
+    <footer class="container--fill p__px--lg display__flex flex-direction--row flex--wrap justify-content-around">
+        <div class="w-25">
             <p class="mb__px--lg text__style--title text__color--light">Theo dõi chúng tôi</p>
             <div class="w-100 display__flex flex-direction--row justify-content-around">
                 <a class="link--none" href="#">
@@ -88,7 +96,7 @@
                 </a>
             </div>
         </div>
-        <div class="h-fit w-25">
+        <div class="w-25">
             <p class="mb__px--lg text__style--title text__color--light">Các chủ đề phổ biến</p>
             <ul class="list__ul--normal h-50 display__flex flex__direction--column flex--wrap">
                 <li class="mb__px--sm w-fit text__style--content text__color--light">Tin tức trong nước</li>
@@ -104,7 +112,7 @@
                 <li class="mb__px--sm w-fit text__style--content text__color--light">Nhà nước</li>
             </ul>
         </div>
-        <div class="h-fit w-25">
+        <div class="w-25">
             <p class="mb__px--lg text__style--title text__color--light">Liên hệ</p>
             <div class="horizontal-line--light mx__auto"></div>
             <div class="my__px--med text__style--content text__color--light text__align--center">
