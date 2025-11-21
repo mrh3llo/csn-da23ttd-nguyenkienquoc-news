@@ -110,8 +110,8 @@ Kích thước logo, biểu tượng
 .logo--sm:hover {
     padding: 5px;
     border: 2px solid var(--color-thirdly);
-    border-radius: 15px;
-    transform: rotate(1deg);
+    border-radius: 25px;
+    transform: rotate(-1deg);
 }
 
 .icon--lg {
@@ -145,9 +145,7 @@ Kích thước logo, biểu tượng
 .icon--med:hover,
 .icon--lg:hover {
     padding: 5px;
-    border: 2px solid var(--color-thirdly);
-    border-radius: 15px;
-    transform: rotate(10deg);
+    transform: scale(1.5, 1.5);
 }
 
 
@@ -682,7 +680,7 @@ Liên kết (link, url)
 
 .link--normal:visited,
 .link--none:visited {
-    color: var(--color-secondary);
+    color: var(--color-highlight);
     transition: color 1s ease;
 }
 
@@ -1120,7 +1118,7 @@ Form (biểu mẫu, input)
     margin: 10px auto;
     padding: var(--spacing-lg);
     width: 25%;
-    min-width: 380px;
+    min-width: 360px;
     border: 2px solid var(--color-secondary);
     border-radius: 15px;
     box-shadow: 1px 1px 5px var(--color-thirdly);

@@ -32,7 +32,7 @@
     <!-- NAVBAR -->
     <nav class="navbar p__px--med">
         <!-- Đôi lại đường link khi làm chính thưc -->
-        <a class="navbar__item link--none flex--no-wrap" href="index_1.2.html">
+        <a class="navbar__item link--none flex--no-wrap" href="home.html">
             <img class="display__block" src="../media/icons/home_icon.png" alt="Biểu tượng trang chủ">
             <p class="px__px--med w-75 text__style--content">Trang chủ</p>
         </a>
@@ -53,22 +53,24 @@
 
     <!-- CONTENT -->
     <p class="text__style--title text__color--primary py__px--lg">ĐĂNG NHÂP</p>
-    <form class="form" onsubmit="validateSignInForm(event)">
+    <form class="form" action="../php/signIn.php" method="GET">
         <div class="display__flex flex--no-wrap justify-content-between">
             <!-- Chia ra làm 2 cột để  input thẳng hàng -->
+            <!-- lable -->
             <div class="w-50 display__flex flex__direction--column justify-content-around">
-                <label class="form__label" for="user_email">Email:</label>
+                <label class="form__label" for="user_name">Tên người dùng:</label>
                 <label class="form__label" for="user_password">Mật khẩu:</label>
             </div>
+            <!-- input -->
             <div class="w-50 display__flex flex__direction--column justify-content-around">
-                <input class="form__input" id="user_email" type="email" onkeypress="validateSignInForm(event)" placeholder="Email">
-                <input class="form__input" id="user_password" type="password" onkeypress="validateSignInForm(event)" placeholder="Nhập mật khẩu">
+                <input class="form__input" id="user_name" name="user_name" type="text" placeholder="Tên người dùng">
+                <input class="form__input" id="user_password" name="user_password" type="password" placeholder="Nhập mật khẩu">
             </div>
         </div>
         <a class="link--none my__px--med w-100 display__block text__align--right" href="forgot_password.html">Bạn quên mật khẩu?</a>
         <div id="log_status"></div>
         <div class="m__px--med w-100 display__flex flex--wrap justify-content-around">
-            <button class="btn--primary p__px--lg text__color--primary" type="submit">Đăng ký</button>
+            <button class="btn--primary p__px--lg text__color--primary" type="submit">Đăng nhập</button>
             <button class="btn--primary-hollow p__px--lg text__color--primary" type="reset">Hủy</button>
         </div>
     </form>

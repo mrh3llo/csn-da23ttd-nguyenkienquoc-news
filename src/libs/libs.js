@@ -14,13 +14,10 @@
     `Việt Nam, ngày ${day} tháng ${month} năm ${year} <br> ${hours} : ${minutes}`;
 
     // Nếu số phút và giờ nhỏ hơn 10 thì thêm số 0 vào trước. Ví dụ từ 8 : 5 thành 08 : 05
-    if(hours < 10 && minutes < 10)
-        displayDate =
-        `Việt Nam, ngày ${day} tháng ${month} năm ${year} <br> 0${hours} : 0${minutes}`;
-    else if(hours < 10)
+    if(hours < 10)
         displayDate =
         `Việt Nam, ngày ${day} tháng ${month} năm ${year} <br> 0${hours} : ${minutes}`;
-    else if(minutes < 10)
+    if(minutes < 10)
         displayDate =
         `Việt Nam, ngày ${day} tháng ${month} năm ${year} <br> 0${hours} : 0${minutes}`;
 
@@ -33,6 +30,7 @@
 }
 
 // Đường link
+// Chỉ có hàm jumpTo('đường dẫn);
 {
     function jumpTo(path) {
         window.location.href = path;
@@ -80,6 +78,7 @@
         }
     }
 
+    // Bổ sung dữ liệu từ CSDL về để kiểm tra thông tin đăng nhập
     function validateSignInForm(event) {
         event.preventDefault();
 
@@ -110,5 +109,13 @@
         else {
             document.getElementById('log_status').innerHTML = errors.join('<br>');
         }
+    }
+}
+
+// Đọc dữ liệu từ URL
+{
+    function reciveValue(value) {
+        const urlValue = new URLSearchParams(window.location.search);
+        return urlValue.get(value);
     }
 }
