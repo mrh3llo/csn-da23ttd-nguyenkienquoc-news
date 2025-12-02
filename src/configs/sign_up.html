@@ -53,12 +53,12 @@
 
     <!-- CONTENT -->
     <p class="text__style--title text__color--primary py__px--lg">ĐĂNG KÝ</p>
-    <form class="form" action="../php/signUp.php" method="POST">
+    <form class="form" id="signUpForm">
         <div class="display__flex flex--no-wrap justify-content-between">
             <!-- Chia ra làm 2 cột để  input thẳng hàng -->
             <div class="w-50 display__flex flex__direction--column justify-content-around">
                 <label class="form__label" for="user_email">Email:</label>
-                <label class="form__label for="user_name">Tên người dùng:</label>
+                <label class="form__label" for="user_name">Tên người dùng:</label>
                 <label class="form__label" for="user_password">Mật khẩu:</label>
                 <label class="form__label" for="user_password_comform">Xác nhận mật khẩu:</label>
             </div>
@@ -73,7 +73,7 @@
         <div id="log_status"></div>
         <div class="m__px--med w-100 display__flex flex--wrap justify-content-around">
             <button class="btn--primary p__px--lg text__color--primary" type="submit">Đăng ký</button>
-            <button class="btn--primary-hollow p__px--lg text__color--primary" type="reset">Hủy</button>
+            <button class="btn--primary-hollow p__px--lg text__color--primary" type="reset" onclick="clearErrors()"">Hủy</button>
         </div>
     </form>
 
@@ -113,24 +113,17 @@
             </ul>
         </div>
         <div class="w-25">
-            <p class="mb__px--lg text__style--title text__color--light">Liên hệ</p>
-            <div class="horizontal-line--light mx__auto"></div>
+            <p class="mb__px--lg text__style--title text__color--light">Sinh viên thực hiện</p>
             <div class="my__px--med text__style--content text__color--light text__align--center">
-                <p>Nguyễn Văn A</p>
-                <p>Giám đốc</p>
-                <p>0123456789</p>
-                <p>vanacom.baoonline@gmail.com</p>
-            </div>
-            <div class="horizontal-line--light mx__auto"></div>
-            <div class="my__px--med text__style--content text__color--light text__align--center">
-                <p>Nguyễn Văn B</p>
-                <p>P. Giám đốc</p>
-                <p>0123456788</p>
-                <p>vanbcom.baoonline@gmail.com</p>
+                <p>Nguyễn Kiến Quốc</p>
+                <p>110123163 - DA23TTD</p>
+                <p>SĐT: 0705317150</p>
+                <p>110123163@st.tvu.edu.vn</p>
             </div>
         </div>
     </footer>
     <p class="container--fill bg__color--secondary p__px--lg text__style--title">"LUÔN CẬP NHẬT TIN TỨC NHANH, CHÍNH XÁC ĐẾN VỚI MỌI NGƯỜI"</p>
     <script src="../libs/libs.js"></script>
+    <script>handleSignUpForm('signUpForm', '../php/signUp.php');</script>
 </body>
 </html>

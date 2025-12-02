@@ -1,48 +1,65 @@
 <?php
-ini_set('display_errors',1);
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require 'libs.php';
 
-// Các biến toàn cục
-// Biến lưu dữ liệu từ người dùng
-$input_useremail = $_POST["user_email"];
-$input_username = $_POST["user_name"];
-$input_userpasswd = $_POST["user_password"];
-$input_userpasswd_comfirm = $_POST["user_password_comfirm"];
-
-// Kiểm tra dữ liệu được nhập vào có hợp lệ hay không?
-$valid =  validateSignUpForm($input_username, $input_useremail, $input_userpasswd, $input_userpasswd_comfirm);
-
-// In các lỗi ra màn hình đăng ký và dừng chương trình (nếu có).
-if($valid != 1) {
-    foreach($valid as $i)
-        echo "$i <br>";
+// Kiểm tra dữ liệu được POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(400);
+    echo "Yêu cầu không hợp lệ!";
     exit;
 }
 
+// Biến lưu dữ liệu từ người dùng
+$input_useremail = isset($_POST["user_email"]) ? trim($_POST["user_email"]) : '';
+$input_username = isset($_POST["user_name"]) ? trim($_POST["user_name"]) : '';
+$input_userpasswd = isset($_POST["user_password"]) ? $_POST["user_password"] : '';
+$input_userpasswd_comfirm = isset($_POST["user_password_comfirm"]) ? $_POST["user_password_comfirm"] : '';
+
 // Tạo kết nối đến CSDL
-$db_connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME); 
+$db_connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // Kiểm tra kết nối
-$db_connect->connect_error ? consolePrint("CSDL: Lỗi kết nối!") : consolePrint("CSDL: Kết nối thành công!");
+if ($db_connect->connect_error) {
+    http_response_code(500);
+    echo "Lỗi kết nối CSDL: " . $db_connect->connect_error;
+    exit;
+}
 
-// SQL query
-$db_sql = "INSERT INTO TAI_KHOAN(TEN_TAI_KHOAN, MAIL_TAI_KHOAN, MAT_KHAU_TAI_KHOAN) VALUES ('" . $input_username . "', '" . $input_useremail . "', '" .md5($input_userpasswd) . "')";
+// Set charset
+$db_connect->set_charset("utf8mb4");
 
-// Tạo truy vấn. Nếu lỗi, dừng chương trình.
+// Hash mật khẩu
+$hashed_password = password_hash($input_userpasswd, PASSWORD_DEFAULT);
+
+// Chuẩn bị SQL query với placeholder
+$db_sql = "INSERT INTO TAI_KHOAN(TEN_TAI_KHOAN, MAIL_TAI_KHOAN, MAT_KHAU_TAI_KHOAN) VALUES (?, ?, ?)";
+
+// Tạo prepared statement
 $stmt = $db_connect->prepare($db_sql);
 if (!$stmt) {
-    consolePrint("Lỗi chuẩn bị truy vấn");
-    return false;
+    http_response_code(500);
+    echo "Lỗi chuẩn bị truy vấn: " . $db_connect->error;
+    exit;
 }
 
-// Thực hiện truy vấn. Nếu có lỗi, báo lỗi.
-$stmt->execute();
-if (!$stmt) {
-    die('Prepare error: ' . $db_connect->error);
+// Bind parameters (sss = string, string, string)
+$stmt->bind_param("sss", $input_username, $input_useremail, $hashed_password);
+
+// Thực hiện truy vấn
+if (!$stmt->execute()) {
+    http_response_code(500);
+    echo "Lỗi thực hiện truy vấn: " . $stmt->error;
+    $stmt->close();
+    $db_connect->close();
+    exit;
 }
 
-// Đóng truy vấn, dừng chương trình.
+// Đóng statement và connection
 $stmt->close();
-return false;
+$db_connect->close();
+
+// Trả về thông báo thành công
+http_response_code(200);
+echo "Đăng ký thành công!";
 ?>

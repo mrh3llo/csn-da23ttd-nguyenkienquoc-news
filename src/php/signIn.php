@@ -1,49 +1,62 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require 'libs.php';
 
-// Các biến toàn cục
-// Biến lưu dữ liệu từ người dùng
-$input_username = $_GET["user_name"];
-$input_userpasswd = $_GET["user_password"];
-
-echo "user name: " . $input_username . "<br>";
-echo "user password: " . md5($input_userpasswd) . "<br>";
-
-// Biến liên quan đến CSDL
-$db_connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME); // Tạo kết nối đến CSDL
-
-// Kiểm tra kết nối
-if($db_connect->connect_error) {
-    echo "Kết nối CSDL: Lỗi kết nối!<br>";
-} else {
-    echo "Kết nối CSDL: Kết nối thành công!<br>";
+// Chỉ chấp nhận POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(400);
+    echo "Yêu cầu không hợp lệ";
+    exit;
 }
 
-// Biến lưu dữ liệu từ CSDL
-$db_username;
-$db_userpasswd;
+$input_username = isset($_POST['user_name']) ? trim($_POST['user_name']) : '';
+$input_password = isset($_POST['user_password']) ? $_POST['user_password'] : '';
 
-$stmt = $db_connect->prepare('SELECT TEN_TAI_KHOAN, MAT_KHAU_TAI_KHOAN FROM TAI_KHOAN WHERE TEN_TAI_KHOAN = ?');
+if (empty($input_username) || empty($input_password)) {
+    http_response_code(400);
+    echo "Không được để trống tên người dùng hoặc mật khẩu";
+    exit;
+}
+
+// Kết nối DB
+$db_connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+if ($db_connect->connect_error) {
+    http_response_code(500);
+    echo "Lỗi kết nối CSDL: " . $db_connect->connect_error;
+    exit;
+}
+$db_connect->set_charset('utf8mb4');
+
+// Lấy hash password từ DB theo username
+$sql = "SELECT MAT_KHAU_TAI_KHOAN FROM TAI_KHOAN WHERE TEN_TAI_KHOAN = ? LIMIT 1";
+$stmt = $db_connect->prepare($sql);
 if (!$stmt) {
-    echo "Lỗi chuẩn bị truy vấn<br>";
-    return false;
+    http_response_code(500);
+    echo "Lỗi chuẩn bị truy vấn: " . $db_connect->error;
+    $db_connect->close();
+    exit;
 }
+
 $stmt->bind_param('s', $input_username);
 $stmt->execute();
-$stmt->bind_result($db_username, $db_userpasswd);
+$stmt->bind_result($db_password_hashed);
+
 if ($stmt->fetch()) {
-    // compare hashed password (example assumes DB stores MD5; use password_hash in real apps)
-    if (md5($input_userpasswd) == $db_userpasswd) {
-        echo "Đăng nhập thành công!<br>";
-        $stmt->close();
-        return true;
+    // Kiểm tra password
+    if (password_verify($input_password, $db_password_hashed)) {
+        // (Tùy chọn) khởi tạo session ở đây
+        http_response_code(200);
+        echo "Đăng nhập thành công!";
     } else {
-        echo "Mật khẩu không đúng<br>";
+        http_response_code(401);
+        echo "Tên đăng nhập hoặc mật khẩu không đúng";
     }
 } else {
-    echo "Không tìm thấy người dùng<br>";
+    http_response_code(401);
+    echo "Tên đăng nhập hoặc mật khẩu không đúng";
 }
 
 $stmt->close();
-return false;
+$db_connect->close();
 ?>
