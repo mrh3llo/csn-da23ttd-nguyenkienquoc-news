@@ -52,26 +52,18 @@
     </nav>
 
     <!-- CONTENT -->
-     <div id="trending_news" class="container--float bg__color--unavilable p__px--lg display__flex flex__direction--column align-items-center border__radius--lg">
+    <div id="trending_news" class="container--float bg__color--unavilable p__px--lg display__flex flex__direction--column align-items-center border__radius--lg">
         <p class="text__style--title text__color--trending">TIN NÓNG HÔM NAY</p>
-        <div class="display__flex flex-direction--row flex--wrap justify-content-around">
-            <div class="card m__px--med border__radius--med border__color--trending">
-                <img class="card__img" src="../media/img/tin_1.jpg" alt="Hình đại diện do tin tức 1">
-                <p class="card__title">Chủ tịch VNG Lê Hồng Minh đặt bài toán khó cho Zalo phải giải trong 10 năm tới</p>
-                <p class="card__content">Nói về chuyển đổi số, chia sẻ tại buổi ký kết hợp tác hợp tác chiến lược với Tập đoàn Nguyễn Hoàng vào ngày 30/10, tại TPHCM, ông Lê Hồng Minh, Chủ tịch VNG, cho biết khi nói về chuyển đổi số ông hay nói vui với mọi người rằng, trong cụm từ này chữ “số” có hai ký tự, còn chữ “chuyển đổi” thì dài hơn lại nằm trước chữ “số”, cho nên ở đây phần chuyển đổi mới là phần khó hơn số. </p>
-            </div>
-            <div class="card m__px--med border__radius--med border__color--trending">
-                <img class="card__img" src="../media/img/tin_1.jpg" alt="Hình đại diện do tin tức 1">
-                <p class="card__title">Chủ tịch VNG Lê Hồng Minh đặt bài toán khó cho Zalo phải giải trong 10 năm tới</p>
-                <p class="card__content">Nói về chuyển đổi số, chia sẻ tại buổi ký kết hợp tác hợp tác chiến lược với Tập đoàn Nguyễn Hoàng vào ngày 30/10, tại TPHCM, ông Lê Hồng Minh, Chủ tịch VNG, cho biết khi nói về chuyển đổi số ông hay nói vui với mọi người rằng, trong cụm từ này chữ “số” có hai ký tự, còn chữ “chuyển đổi” thì dài hơn lại nằm trước chữ “số”, cho nên ở đây phần chuyển đổi mới là phần khó hơn số. </p>
-            </div>
-            <div class="card m__px--med border__radius--med border__color--trending">
-                <img class="card__img" src="../media/img/tin_1.jpg" alt="Hình đại diện do tin tức 1">
-                <p class="card__title">Chủ tịch VNG Lê Hồng Minh đặt bài toán khó cho Zalo phải giải trong 10 năm tới</p>
-                <p class="card__content">Nói về chuyển đổi số, chia sẻ tại buổi ký kết hợp tác hợp tác chiến lược với Tập đoàn Nguyễn Hoàng vào ngày 30/10, tại TPHCM, ông Lê Hồng Minh, Chủ tịch VNG, cho biết khi nói về chuyển đổi số ông hay nói vui với mọi người rằng, trong cụm từ này chữ “số” có hai ký tự, còn chữ “chuyển đổi” thì dài hơn lại nằm trước chữ “số”, cho nên ở đây phần chuyển đổi mới là phần khó hơn số. </p>
-            </div>
-        </div>
-     </div>
+        <!-- Hiểu thị các bài báo đang xu hướng -->
+        <div id="hotNews" class="display__flex flex-direction--row flex--wrap justify-content-around"></div>
+    </div>
+
+    <!-- Hiển thị các tin tức mới nhất khác -->
+    <div class="container--float bg__color--unavilable p__px--lg display__flex flex__direction--column align-items-center border__radius--lg">
+        <p class="text__style--title text__color--trending">CÁC TIN TỨC KHÁC</p>
+        <!-- Hiển thị các tin tức khác trong thẻ này. Xử lý bằng JS và PHP -->
+        <div id="displayListNews" class="bg__color--unavilable mx__auto display__flex flex__direction--column justify-content-between w-75"></div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="container--fill p__px--lg h-fit display__flex flex-direction--row flex--wrap justify-content-around">
@@ -119,6 +111,18 @@
         </div>
     </footer>
     <p class="container--fill bg__color--secondary p__px--lg text__style--title">"LUÔN CẬP NHẬT TIN TỨC NHANH, CHÍNH XÁC ĐẾN VỚI MỌI NGƯỜI"</p>
+    <!-- Script xử lý -->
     <script src="../libs/libs.js"></script>
+    <script>
+        if(typeof displayListNews === 'function') {
+            // Đổi đường dẫn nếu di chuyển
+            displayListNews('hotNews', '../php/displayHotNews.php');
+        }
+
+        // Load latest 10 articles (moved to libs.js)
+        if (typeof displayListNews === 'function') {
+            displayListNews('displayListNews', '../php/displayListNews.php');
+        }
+    </script>
 </body>
 </html>
