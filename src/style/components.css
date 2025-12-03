@@ -588,63 +588,63 @@ HEIGHT
 
 .text__color--dark,
 .text__color--content {
-    color: var(--color-dark);
+    color: var(--color-dark) !important;
 }
 
 .text__color--light {
-    color: var(--color-light)
+    color: var(--color-light) !important;
 }
 
 .text__color--primary {
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
 }
 
 .text__color--secondary {
-    color: var(--color-secondary);
+    color: var(--color-secondary) !important;
 }
 
 .text__color--thirdly {
-    color: var(--color-thirdly);
+    color: var(--color-thirdly) !important;
 }
 
 .text__color--trending {
-    color: var(--color-trending);
+    color: var(--color-trending) !important;
 }
 
 .text__align--center {
-    text-align: center;
+    text-align: center !important;
 }
 
 .text__align--left {
-    text-align: left;
+    text-align: left !important;
 }
 
 .text__align--right {
-    text-align: right;
+    text-align: right !important;
 }
 
 .text__align--justify {
-    text-align: justify;
+    text-align: justify !important;
 }
 
 .text__decoration--none {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .text__decoration--underline {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 
 .text__transform--upper {
-    text-transform: uppercase;
+    text-transform: uppercase !important;
 }
 
 .text__transform--lower {
-    text-transform: lowercase;
+    text-transform: lowercase !important;
 }
 
 .text__transform--capital {
-    text-transform: capitalize;
+    text-transform: capitalize !important;
 }
 
 /* -----------------------------------------------
@@ -654,15 +654,17 @@ Liên kết (link, url)
     color: var(--color-dark);
     transition:
     text-transform 1s ease,
-    text-shadow 1s ease;
+    text-shadow 1s ease,
+    color 1s ease;
 }
 
 .link--none {
     color: var(--color-dark);
     text-decoration: none;
     transition:
-    color 1s ease,
-    text-shadow 1s ease;
+    text-transform 1s ease,
+    text-shadow 1s ease,
+    color 1s ease;
 }
 
 .link--normal:hover,
@@ -670,7 +672,10 @@ Liên kết (link, url)
     color: var(--color-thirdly);
     text-transform: uppercase;
     text-shadow: 2px 2px 10px var(--color-thirdly);
-    transition: color 1s ease;
+    transition:
+    text-transform 1s ease,
+    text-shadow 1s ease,
+    color 1s ease;
 }
 
 .link--normal:active,
@@ -755,75 +760,75 @@ Bảng (table)
 Hiển thị (display)
 ----------------------------------------------- */
 .display__block {
-    display: block;
+    display: block !important;
 }
 
 .display__none {
-    display: none;
+    display: none !important;
 }
 
 .display__inline {
-    display: inline;
+    display: inline !important;
 }
 
 .display__inline-blox {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 .display__flex {
-    display: flex;
+    display: flex !important;
 }
 
 .flex--wrap {
-    flex-wrap: wrap;
+    flex-wrap: wrap !important;
 }
 
 .flex--no-wrap {
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
 }
 
 .flex__direction--column {
-    flex-direction: column;
+    flex-direction: column !important;
 }
 
 .flex__direction--row {
-    flex-direction: row;
+    flex-direction: row !important;
 }
 
 .justify-content-center {
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .justify-content-left {
-    justify-content: left;
+    justify-content: left !important;
 }
 
 .justify-content-right {
-    justify-content: right;
+    justify-content: right !important;
 }
 
 .justify-content-around {
-    justify-content: space-around;
+    justify-content: space-around !important;
 }
 
 .justify-content-between {
-    justify-content: space-between;
+    justify-content: space-between !important;
 }
 
 .justify-content-evenly {
-    justify-content:space-evenly;
+    justify-content:space-evenly !important;
 }
 
 .align-items-center {
-    align-items: center;
+    align-items: center !important;
 }
 
 .align-items-left {
-    align-items: start;
+    align-items: start !important;
 }
 
 .align-items-right {
-    align-items: end;
+    align-items: end !important;
 }
 /* -----------------------------------------------
 Thanh công cụ (Navigation Bar, NavBar)
@@ -1062,7 +1067,23 @@ Card (thẻ)
     box-shadow 0.6s ease;
 }
 
-.card:hover {
+.card__row {
+    background-color: var(--color-light);
+    color: var(--color-light);
+    width: 75%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: var(--spacing-med);
+    font-family: var(--font-family-base);
+    transition:
+    transform 0.4s ease,
+    box-shadow 0.6s ease;
+}
+
+.card:hover,
+.card__row:hover {
     transform: translate(0px, -5px);
     box-shadow: 2px 2px 10px var(--color-dark);
 }
@@ -1100,6 +1121,12 @@ Card (thẻ)
 }
 
 @media screen and (max-width: 420px) {
+    .card__row {
+        width: 100%;
+        text-align: center !important;
+        flex-direction: column;
+    }
+
     .card__title {
         font-size: var(--font-size-heading-1);
     }
