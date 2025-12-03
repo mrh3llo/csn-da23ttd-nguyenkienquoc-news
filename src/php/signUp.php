@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 require 'libs.php';
 
 // Kiểm tra dữ liệu được POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(400);
     echo "Yêu cầu không hợp lệ!";
     exit;
@@ -20,14 +20,14 @@ $input_userpasswd_comfirm = isset($_POST["user_password_comfirm"]) ? $_POST["use
 $db_connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // Kiểm tra kết nối
-if ($db_connect->connect_error) {
+if($db_connect->connect_error) {
     http_response_code(500);
     echo "Lỗi kết nối CSDL: " . $db_connect->connect_error;
     exit;
 }
 
 // Set charset
-$db_connect->set_charset("utf8mb4");
+$db_connect->set_charset("utf8");
 
 // Hash mật khẩu
 $hashed_password = password_hash($input_userpasswd, PASSWORD_DEFAULT);
@@ -37,7 +37,7 @@ $db_sql = "INSERT INTO TAI_KHOAN(TEN_TAI_KHOAN, MAIL_TAI_KHOAN, MAT_KHAU_TAI_KHO
 
 // Tạo prepared statement
 $stmt = $db_connect->prepare($db_sql);
-if (!$stmt) {
+if(!$stmt) {
     http_response_code(500);
     echo "Lỗi chuẩn bị truy vấn: " . $db_connect->error;
     exit;
@@ -47,7 +47,7 @@ if (!$stmt) {
 $stmt->bind_param("sss", $input_username, $input_useremail, $hashed_password);
 
 // Thực hiện truy vấn
-if (!$stmt->execute()) {
+if(!$stmt->execute()) {
     http_response_code(500);
     echo "Lỗi thực hiện truy vấn: " . $stmt->error;
     $stmt->close();
