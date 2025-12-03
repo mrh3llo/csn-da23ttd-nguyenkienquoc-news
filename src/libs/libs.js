@@ -198,8 +198,88 @@ function clearErrors() {
 
 // Đọc dữ liệu từ URL
 {
-    function reciveValue(value) {
-        const urlValue = new URLSearchParams(window.location.search);
-        return urlValue.get(value);
-    }
+function reciveValue(value) {
+    const urlValue = new URLSearchParams(window.location.search);
+    return urlValue.get(value);
 }
+}
+
+// Hiển thị bài báo
+{
+// Tải danh sách bài báo từ server và chèn vào container
+function displayListNews(containerId, fetchUrl) {
+    const container = document.getElementById(containerId);
+    if(!container) return;
+
+    fetch(fetchUrl, {
+        method: 'GET',
+        credentials: 'same-origin'
+    })
+    .then(resp => {
+        if(!resp.ok)
+            return resp.text()
+            .then(t => {
+                throw new Error(t || resp.statusText);
+            });
+        return resp.text();
+    })
+    .then(html => {
+        container.innerHTML = html;
+    })
+    .catch(err => {
+        container.innerHTML = '<p>Không thể tải tin tức: ' + (err.message || 'Lỗi') + '</p>';
+        console.error('Lỗi tải displayListNews:', err);
+    });
+}
+
+// Hiển thị bài báo
+function displayNews(containerId, fetchUrl) {
+    const container = document.getElementById(containerId);
+
+    if(!container) return;
+
+    fetch(fetchUrl, {
+        method: 'GET',
+        credentials: 'same-origin'
+    })
+    .then(resp => {
+        if(!resp.ok)
+            return resp.text()
+            .then(t => {
+                throw new Error(t || resp.statusText);
+            });
+        return resp.text();
+    })
+    .then(html => {
+        container.innerHTML = html;
+    })
+    .catch(err => {
+        container.innerHTML = '<p>Không thể tải tin tức: ' + (err.message || 'Lỗi') + '</p>';
+        console.error('Lỗi tải displayNews', err);
+    })
+}
+}
+
+// Tự động khởi tạo hiển thị tin tức khi có phần tử #displayNews
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        var container = document.getElementById('displayNews');
+        if(!container) return;
+
+        // Nếu có newsId trong URL -> hiển thị chi tiết
+        var newsId = reciveValue('newsId');
+        if(newsId) {
+            if(typeof displayNews === 'function') {
+                displayNews('displayNews', '../php/displayNews.php?newsId=' + encodeURIComponent(newsId));
+            }
+            return;
+        }
+
+        // Nếu không có newsId -> hiển thị danh sách
+        if(typeof displayListNews === 'function') {
+            displayListNews('displayNews', '../php/displayListNews.php');
+        }
+    } catch(e) {
+        console.error('Auto-init displayNews failed:', e);
+    }
+});
