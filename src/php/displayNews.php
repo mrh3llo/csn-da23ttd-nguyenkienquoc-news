@@ -69,14 +69,15 @@ if (!$row) {
 
 $newsTitle = htmlspecialchars($row['TIEU_DE_BAI_BAO']);
 $newsBanner = htmlspecialchars($row['BANNER_BAI_BAO']);
-$newsContent = htmlspecialchars($row['NOI_DUNG_BAI_BAO']);
+$newsContent = $row['NOI_DUNG_BAI_BAO'];
 $newsDateRaw = $row['NGAY_DANG_BAI_BAO'];
 $newsDate = $newsDateRaw ? date('d/m/Y', strtotime($newsDateRaw)) : "";
 
 echo '<h3 class="my__px--med text__style--title text__align--left text__color--dark">' . $newsTitle . '</h3>';
 echo '<p class="my__px--med text__style--content text__color--dark">' . $newsDate . '</p>';
 echo '<img class="mx__auto border__radius--sm w-50 display__block" src="' . $newsBanner . '" alt="' . $newsTitle . '">';
-echo '<p class="my__px--lg text__style--content">' . $newsContent . '</p>';
+// Hiển thị nội dung bài báo: escape để tránh XSS rồi chuyển newline thành <br>
+echo '<p class="my__px--lg text__style--content">' . nl2br(htmlspecialchars($newsContent)) . '</p>';
 
 $stmt->close();
 $db_connect->close();
