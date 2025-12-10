@@ -45,7 +45,7 @@ if ($res && $res->num_rows > 0) {
         $banner = $row['BANNER_BAI_BAO'] ? htmlspecialchars($row['BANNER_BAI_BAO']) : '../media/logo/logo_vn.png';
         $date = $row['NGAY_DANG_BAI_BAO'] ? date('d/m/Y', strtotime($row['NGAY_DANG_BAI_BAO'])) : '';
 
-        $out .= '<a class="link--none search-result display__flex flex--no-wrap my__px--med border__radius--sm p__px--sm" href="displayNews.html?newsId=' . $id . '" style="align-items:center; text-decoration:none; color:inherit;">
+        $out .= '<a class="link--none search-result display__flex flex--no-wrap my__px--med border__radius--sm p__px--sm" href="news.html?newsId=' . $id . '" style="align-items:center; text-decoration:none; color:inherit;">
             <div style="flex:0 0 120px; max-width:120px; margin-right:12px;">
                 <img src="' . $banner . '" alt="' . $title . '" style="width:120px; height:80px; object-fit:cover; border-radius:6px;">
             </div>
