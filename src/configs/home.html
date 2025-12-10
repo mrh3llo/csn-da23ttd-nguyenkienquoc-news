@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Đôi lại đường link khi làm chính thưc -->
-    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/components.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body class="bg__color--light">
     <!-- HEADER -->
@@ -20,10 +20,16 @@
         <a id="logo_vn" class="my__px--lg w-25" href="home.html">
             <img class="logo--lg display__block mx__auto" src="../media/logo/logo_vn.png" alt="Logo của trang báo">
         </a>
-        <div id="search_bar" class="my__px--lg w-75 bg__color--light w-25 border__radius--circle p__px--sm h-25 display__flex flex__direction--row justify-content-center align-items-center">
-            <img class="icon--sm display__block" src="../media/icons/search_icon.png" alt="Biểu tượng tìm kiếm">
-            <input class="w-75 border__width--none border__radius--circle m__px--sm p__px--med" type="text" placeholder="Tìm kiếm">
+        <!-- Thanh tìm kiếm -->
+        <div id="search_bar_wrapper" class="search_bar_wrapper">
+            <div id="search_bar" class="my__px--lg bg__color--light border__radius--circle p__px--sm h-25 display__flex flex__direction--row justify-content-center align-items-center">
+                <img class="icon--sm display__block" src="../media/icons/search_icon.png" alt="Biểu tượng tìm kiếm">
+                <input id="search_input" class="w-75 border__width--none border__radius--circle m__px--sm p__px--med" type="text" placeholder="Tìm kiếm">
+            </div>
+            <!-- Kết quả tìm kiếm (sẽ được JS chèn vào) -->
+            <div id="search_results" class="search_results"></div>
         </div>
+        <!-- Đăng nhập/ đăng ký -->
         <div class="my__px--lg w-25 display__flex flex__direction--row flex--wrap justify-content-center">
             <button class="btn--primary-hollow mx__px--med p__px--lg" onclick="jumpTo('sign_in.html')">Đăng nhập</button>
             <button class="btn--primary mx__px--med p__px--lg" onclick="jumpTo('sign_up.html')">Đăng ký</button>

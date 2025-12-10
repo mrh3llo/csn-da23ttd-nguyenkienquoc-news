@@ -283,3 +283,67 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Auto-init displayNews failed:', e);
     }
 });
+
+// --- Search bar: realtime search with debounce ---
+ (function(){
+     // simple debounce
+     function debounce(fn, wait) {
+         let t = null;
+         return function() {
+             const args = arguments;
+             clearTimeout(t);
+             t = setTimeout(() => fn.apply(this, args), wait);
+         }
+     }
+
+     function renderSearchResults(html) {
+         const container = document.getElementById('search_results');
+         if(!container) return;
+         if (!html || html.trim() === '') {
+             container.style.display = 'none';
+             container.innerHTML = '';
+             return;
+         }
+         container.style.display = 'block';
+         container.innerHTML = html;
+     }
+
+     async function doSearch(q) {
+         if (!q || q.trim() === '') {
+             renderSearchResults('');
+             return;
+         }
+         try {
+             const resp = await fetch('../php/searchNews.php?q=' + encodeURIComponent(q), { method: 'GET', credentials: 'same-origin' });
+             if (!resp.ok) {
+                 const t = await resp.text();
+                 throw new Error(t || resp.statusText);
+             }
+             const html = await resp.text();
+             renderSearchResults(html);
+         } catch (err) {
+             console.error('Search error:', err);
+         }
+     }
+
+     // Attach to input if present
+     document.addEventListener('DOMContentLoaded', function() {
+         try {
+             const input = document.getElementById('search_input');
+             if (!input) return;
+             const debounced = debounce(function(e){
+                 const q = e.target.value;
+                 doSearch(q);
+             }, 300);
+             input.addEventListener('input', debounced);
+
+             // hide results on Escape
+             input.addEventListener('keydown', function(e){
+                 if (e.key === 'Escape') {
+                     const container = document.getElementById('search_results');
+                     if (container) container.style.display = 'none';
+                 }
+             });
+         } catch(e) { console.error('Init search failed:', e); }
+     });
+ })();

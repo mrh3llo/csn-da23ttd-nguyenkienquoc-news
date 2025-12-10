@@ -844,6 +844,53 @@ Hiển thị (display)
 .align-items-right {
     align-items: end !important;
 }
+
+/* -----------------------------------------------
+Thanh tìm kiếm (Search Bar)
+----------------------------------------------- */
+
+@keyframes slideDownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#search_bar_wrapper {
+    position: relative;
+    width: 50%;
+    max-width: 500px;
+}
+
+#search_results {
+    background-color: #F6F4F0;
+    margin-top: var(--spacing-sm);
+    border-radius: 5px;
+    text-align: left;
+    font-size: var(--font-size-content);
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: all 1s ease;
+    animation: slideDownFadeIn 1s ease-out;
+}
+
+#search_results:hover {
+    text-align: left;
+    font-size: var(--font-size-content);
+    transform: all 1s ease;
+}
+
 /* -----------------------------------------------
 Thanh công cụ (Navigation Bar, NavBar)
 ----------------------------------------------- */
