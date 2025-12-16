@@ -11,8 +11,9 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Biến lưu dữ liệu từ người dùng
-$input_useremail = isset($_POST["user_email"]) ? trim($_POST["user_email"]) : '';
+$input_random_id = strval(rand(0, 999999));
 $input_username = isset($_POST["user_name"]) ? trim($_POST["user_name"]) : '';
+$input_useremail = isset($_POST["user_email"]) ? trim($_POST["user_email"]) : '';
 $input_userpasswd = isset($_POST["user_password"]) ? $_POST["user_password"] : '';
 $input_userpasswd_comfirm = isset($_POST["user_password_comfirm"]) ? $_POST["user_password_comfirm"] : '';
 
@@ -33,7 +34,7 @@ $db_connect->set_charset("utf8");
 $hashed_password = password_hash($input_userpasswd, PASSWORD_DEFAULT);
 
 // Chuẩn bị SQL query với placeholder
-$db_sql = "INSERT INTO TAI_KHOAN(TEN_TAI_KHOAN, MAIL_TAI_KHOAN, MAT_KHAU_TAI_KHOAN) VALUES (?, ?, ?)";
+$db_sql = "INSERT INTO TAI_KHOAN(MA_TAI_KHOAN, TEN_TAI_KHOAN, MAIL_TAI_KHOAN, MAT_KHAU_TAI_KHOAN, MA_VAI_TRO) VALUES (?, ?, ?, ?, 'ND')";
 
 // Tạo prepared statement
 $stmt = $db_connect->prepare($db_sql);
@@ -44,7 +45,7 @@ if(!$stmt) {
 }
 
 // Bind parameters (sss = string, string, string)
-$stmt->bind_param("sss", $input_username, $input_useremail, $hashed_password);
+$stmt->bind_param("ssss",$input_random_id, $input_username, $input_useremail, $hashed_password);
 
 // Thực hiện truy vấn
 if(!$stmt->execute()) {
