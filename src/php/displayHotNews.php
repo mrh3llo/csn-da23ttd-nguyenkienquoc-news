@@ -16,7 +16,7 @@ $db_connect->set_charset("utf8");
 $db_sql = "SELECT MA_BAI_BAO, TIEU_DE_BAI_BAO, BANNER_BAI_BAO, NGAY_DANG_BAI_BAO
            FROM BAI_BAO
            ORDER BY NGAY_DANG_BAI_BAO DESC
-           LIMIT 4";
+           LIMIT 3";
 
 // Chủân bị truy vấn. Báo lỗi (nếu có)
 $stmt = $db_connect->prepare($db_sql);
