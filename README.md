@@ -36,7 +36,6 @@ Code/
 ├── media/            # Tài nguyên đa phương tiện
 │   ├── banner/       # Ảnh banner
 │   ├── icons/        # Biểu tượng
-│   ├── img/          # Ảnh bài viết
 │   └── logo/         # Logo website
 ├── php/              # Các tập tin PHP
 │   ├── signIn.php             # Xử lý đăng nhập
