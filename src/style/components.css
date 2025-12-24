@@ -41,6 +41,7 @@ Vàng	    #FFCD00
     --font-size-heading-3: 16px;
     --font-size-heading-4: 16px;
 
+    /* Khoảng cách (spacing, margin, padding) */
     --spacing-auto: auto;
     --spacing-null: 0px;
     --spacing-sm: 5px;
@@ -332,7 +333,7 @@ MARGIN
     margin: var(--spacing-xl) 0;
 }
 
-.mt__auto {
+.my__auto {
     margin: var(--spacing-auto) 0;
 }
 
@@ -455,7 +456,7 @@ PADDING
     padding: var(--spacing-xl) 0;
 }
 
-.py__auoto {
+.py__auto {
     padding: var(--spacing-auto) 0;
 }
 
@@ -475,7 +476,7 @@ PADDING
     padding: 0 var(--spacing-xl);
 }
 
-.py__auto {
+.px__auto {
     padding: 0 var(--spacing-auto);
 }
 
@@ -664,7 +665,7 @@ HEIGHT
 /* -----------------------------------------------
 Liên kết (link, url)
 ----------------------------------------------- */
-.link__normal {
+.link--normal {
     color: var(--color-dark);
     transition:
     text-transform 1s ease,
@@ -785,7 +786,7 @@ Hiển thị (display)
     display: inline !important;
 }
 
-.display__inline-blox {
+.display__inline-block {
     display: inline-block !important;
 }
 
