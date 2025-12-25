@@ -1,6 +1,6 @@
 # 📰 Báo Tin Tức Online
 
-Đây là một trang web báo tin tức trực tuyến được phát triển như một bài tập thực hành về thiết kế và phát triển ứng dụng web.
+Đây là một trang web báo tin tức trực tuyến được phát triển bằng thư viện thành phần giao diện và có một hệ thống thiết kế cơ bản.
 
 ## 📋 Giới Thiệu Dự Án
 
