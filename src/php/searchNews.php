@@ -51,7 +51,7 @@ if ($res && $res->num_rows > 0) {
             </div>
             <div style="flex:1 1 auto;">
                 <h4 class="text__style--title" style="margin:0 0 6px 0;">' . $title . '</h4>
-                <p class="text__style--content text__color--dark" style="margin:0; font-size:0.9em;">' . $date . '</p>
+                <p class="text__style--content text__color--dark text__align--center">' . $date . '</p>
             </div>
         </a>';
     }

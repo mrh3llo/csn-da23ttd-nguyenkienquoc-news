@@ -20,9 +20,14 @@
         <a id="logo_vn" class="my__px--lg w-25" href="home.html">
             <img class="logo--lg display__block mx__auto" src="../media/logo/logo_vn.png" alt="Logo của trang báo">
         </a>
-        <div id="search_bar" class="my__px--lg w-75 bg__color--light w-25 border__radius--circle p__px--sm h-25 display__flex flex__direction--row justify-content-center align-items-center">
-            <img class="icon--sm display__block" src="../media/icons/search_icon.png" alt="Biểu tượng tìm kiếm">
-            <input class="w-75 border__width--none border__radius--circle m__px--sm p__px--med" type="text" placeholder="Tìm kiếm">
+        <!-- Thanh tìm kiếm -->
+        <div id="search_bar_wrapper" class="search_bar_wrapper">
+            <div id="search_bar" class="my__px--lg bg__color--light border__radius--circle p__px--sm h-25 display__flex flex__direction--row justify-content-center align-items-center">
+                <img class="icon--sm display__block" src="../media/icons/search_icon.png" alt="Biểu tượng tìm kiếm">
+                <input id="search_input" class="w-75 border__width--none border__radius--circle m__px--sm p__px--med" type="text" placeholder="Tìm kiếm">
+            </div>
+            <!-- Kết quả tìm kiếm (sẽ được JS chèn vào) -->
+            <div id="search_results" class="search_results"></div>
         </div>
         <div class="my__px--lg w-25 display__flex flex__direction--row flex--wrap justify-content-center">
             <button class="btn--primary-hollow mx__px--med p__px--lg" onclick="jumpTo('sign_in.html')">Đăng nhập</button>
@@ -57,7 +62,7 @@
 
     <!-- FOOTER -->
     <footer class="container--fill p__px--lg h-fit display__flex flex-direction--row flex--wrap justify-content-around">
-        <div class="w-25">
+        <div>
             <p class="mb__px--lg text__style--title text__color--light">Theo dõi chúng tôi</p>
             <div class="w-100 display__flex flex-direction--row justify-content-around">
                 <a class="link--none" href="#">
@@ -74,23 +79,23 @@
                 </a>
             </div>
         </div>
-        <div class="w-25">
+        <div>
             <p class="mb__px--lg text__style--title text__color--light">Các chủ đề phổ biến</p>
-            <ul class="list__ul--normal h-50 display__flex flex__direction--column flex--wrap">
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Tin tức trong nước</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Tin tức ngoài nước</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Thể thao</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Thời tiết</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Bất động sản</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Ngân hàng</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Công nghệ</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Du lịch</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Quân sư</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Y tế</li>
-                <li class="mb__px--sm w-fit text__style--content text__color--light">Nhà nước</li>
-            </ul>
+            <div class="display__flex flex--wrap justify-content-evenly">
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Tin tức trong nước</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Tin tức ngoài nước</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Thể thao</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Thời tiết</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Bất động sản</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Ngân hàng</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Công nghệ</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Du lịch</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Quân sư</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Y tế</a>
+                <a class="m__px--sm link--none text__style--content text__color--light text__align--center" href="#">Nhà nước</a>
+            </div>
         </div>
-        <div class="w-25">
+        <div>
             <p class="mb__px--lg text__style--title text__color--light">Sinh viên thực hiện</p>
             <div class="my__px--med text__style--content text__color--light text__align--center">
                 <p>Nguyễn Kiến Quốc</p>

@@ -1,3 +1,0 @@
-sudo cp -r ~/Documents/School/CSN/Code/* /opt/lampp/htdocs/kquoc/online_news/
-
-sudo cp -r ~/Documents/School/CSN/Code/* ~/Documents/School/CSN/git/src/

@@ -60,7 +60,7 @@ while ($row = $result->fetch_assoc()) {
     echo '    <img class="card__img w-25" src="' . $newsBanner . '" alt="' . $newsTitle . '">';
     echo '    <div class="news-info">';
     echo '      <h3 class="card__title text__align--left">' . $newsTitle . '</h3>';
-    echo '      <p class="my__px--med text__style--content text__color--dark">' . htmlspecialchars($dateFormatted) . '</p>';
+    echo '      <p class="m__px--sm display__block text__style--content text__color--dark">' . htmlspecialchars($dateFormatted) . '</p>';
     echo '    </div>';
     echo '  </div>';
     echo '</a>';

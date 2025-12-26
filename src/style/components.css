@@ -76,6 +76,11 @@ Vàng	    #FFCD00
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(to top left, #D3DAD9, #F6F4F0);
+    background-repeat: no-repeat;
+}
+
 /* -----------------------------------------------
 Kích thước logo, biểu tượng
 ----------------------------------------------- */
@@ -161,6 +166,7 @@ Container
 .container--float {
     background-color: var(--color-primary);
     margin: var(--spacing-xl) var(--spacing-auto);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     width: 80%;
 }
 
@@ -677,20 +683,19 @@ Liên kết (link, url)
     color: var(--color-dark);
     text-decoration: none;
     transition:
-    text-transform 1s ease,
-    text-shadow 1s ease,
-    color 1s ease;
+        text-transform 1s ease,
+        text-shadow 1s ease,
+        color 1s ease;
 }
 
 .link--normal:hover,
 .link--none:hover {
     color: var(--color-thirdly);
-    text-transform: uppercase;
     text-shadow: 2px 2px 10px var(--color-thirdly);
     transition:
-    text-transform 1s ease,
-    text-shadow 1s ease,
-    color 1s ease;
+        text-transform 1s ease,
+        text-shadow 1s ease,
+        color 1s ease;
 }
 
 .link--normal:active,
@@ -881,7 +886,7 @@ Thanh tìm kiếm (Search Bar)
     z-index: 100;
     max-height: 400px;
     overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     transform: all 1s ease;
     animation: slideDownFadeIn 1s ease-out;
 }
@@ -1006,9 +1011,9 @@ Còn thiếu :active
     text-align: center;
     cursor: pointer;
     transition:
-    background-color 1s ease,
-    transform 0.5s ease,
-    box-shadow 1s ease;
+        background-color 1s ease,
+        transform 0.5s ease,
+        box-shadow 1s ease;
 }
 
 .btn--primary-hollow {
@@ -1022,9 +1027,9 @@ Còn thiếu :active
     text-align: center;
     cursor: pointer;
     transition:
-    background-color 1s ease,
-    transform 0.5s ease,
-    box-shadow 1s ease;
+        background-color 1s ease,
+        transform 0.5s ease,
+        box-shadow 1s ease;
 }
 
 .btn--primary:hover,
@@ -1036,9 +1041,9 @@ Còn thiếu :active
     transform: translate(0px, -5px);
     box-shadow: 2px 2px 20px var(--color-dark);
     transition:
-    background-color 1s ease,
-    transform 0.5s ease,
-    box-shadow 1s ease;
+        background-color 1s ease,
+        transform 0.5s ease,
+        box-shadow 1s ease;
 }
 
 .btn--trending {
@@ -1052,9 +1057,9 @@ Còn thiếu :active
     text-align: center;
     cursor: pointer;
     transition:
-    background-color 1s ease,
-    transform 0.5s ease,
-    box-shadow 1s ease;
+        background-color 1s ease,
+        transform 0.5s ease,
+        box-shadow 1s ease;
 }
 
 .btn--trending-hollow {
@@ -1068,9 +1073,9 @@ Còn thiếu :active
     text-align: center;
     cursor: pointer;
     transition:
-    background-color 1s ease,
-    transform 0.5s ease,
-    box-shadow 1s ease;
+        background-color 1s ease,
+        transform 0.5s ease,
+        box-shadow 1s ease;
 }
 
 .btn--trending:hover,
@@ -1082,9 +1087,9 @@ Còn thiếu :active
     transform: translate(0px, -5px);
     box-shadow: 2px 2px 20px var(--color-dark);
     transition:
-    background-color 1s ease,
-    transform 0.5s ease,
-    box-shadow 1s ease;
+        background-color 1s ease,
+        transform 0.5s ease,
+        box-shadow 1s ease;
 }
 
 /* -----------------------------------------------
@@ -1125,8 +1130,8 @@ Card (thẻ)
     padding: var(--spacing-med);
     font-family: var(--font-family-base);
     transition:
-    transform 0.4s ease,
-    box-shadow 0.6s ease;
+        transform 0.4s ease,
+        box-shadow 0.6s ease;
 }
 
 .card__row {
@@ -1140,8 +1145,8 @@ Card (thẻ)
     padding: var(--spacing-med);
     font-family: var(--font-family-base);
     transition:
-    transform 0.4s ease,
-    box-shadow 0.6s ease;
+        transform 0.4s ease,
+        box-shadow 0.6s ease;
 }
 
 .card:hover,
@@ -1227,7 +1232,7 @@ Form (biểu mẫu, input)
     border: 1px solid var(--color-thirdly);
     border-radius: 5px;
     transition:
-    transform 0.2s ease;
+        transform 0.2s ease;
 }
 
 .form__input:focus {
